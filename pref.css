@@ -1,0 +1,9 @@
+*{margin:0;padding:0;}
+html{width:100%;height:100%;font:14px arial, sans-serif;color:#000;background:#fff;}
+body{width:100%;height:100%;}
+header{display:flex;height:64px;background:#F2F2F2;padding:0 16px;overflow:hidden;}
+.back{display:inline-block;margin:20px 8px;width:24px;height:24px;background:rgba(0,0,0,0) url("./back.svg") no-repeat;background-size:100% 100%;}
+h3{height:100%;display:inline-block;padding:0 8px;font-weight:400;line-height:64px;}
+article{max-width:1240px;margin:0 auto;padding:0 16px;}
+h1{font-height:20px;margin-top:24px;margin-bottom:16px;font-weight:600;}
+p{margin:0 0 10px 0;}
