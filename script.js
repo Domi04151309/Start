@@ -12,16 +12,17 @@ function checkTime(i){
 	return i;
 }
 function checkMessage(h){
+  var message = "Hello";
+  var name = getCookie("name");
   if(h >= 0 && h < 12){
-    document.getElementById('message').innerHTML = "Good Morning";
+    message = "Good Morning";
   }else if(h >= 12 && h < 18){
-    document.getElementById('message').innerHTML = "Good Afternoon";
+    message = "Good Afternoon";
 	}else if(h >= 18 && h < 22){
-    document.getElementById('message').innerHTML = "Good Evening";
+    message = "Good Evening";
 	}else if(h >= 21 && h < 25){
-    document.getElementById('message').innerHTML = "Good Night";
-	}else{
-    document.getElementById('message').innerHTML = "Hello";
+    message = "Good Night";
 	}
+  document.getElementById('message').innerHTML = message + " " + name;
 }
 startTime();
