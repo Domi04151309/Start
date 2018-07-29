@@ -4,8 +4,8 @@ function setName(){
 	document.getElementById('name').innerHTML = "Your name is " + name;
 }
 function getName(){
-  var user = getCookie("name");
-  if (user != "") {
+  var name = getCookie("name");
+  if (name != "") {
     document.getElementById('name').innerHTML = "Your name is " + name;
   }
 }
