@@ -27,8 +27,8 @@ function checkMessage(h){
 }
 function checkBg(){
   var background = getCookie("image");
-  if (background != "") {
-    document.getElementsByTagName("HTML")[0].style.backgroundImage = "url(" + background + ")";
+  if (background != "" && !!document.getElementById("bg")) {
+    document.getElementById("bg").style.backgroundImage = "url(" + background + ")";
   }
 }
 checkBg();
