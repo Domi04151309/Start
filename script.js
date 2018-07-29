@@ -25,4 +25,11 @@ function checkMessage(h){
 	}
   document.getElementById('message').innerHTML = message + " " + name;
 }
+function checkBg(){
+  var background = getCookie("image");
+  if (background != "") {
+    document.getElementsByTagName("HTML")[0].style.backgroundImage = "url(" + background + ")";
+  }
+}
+checkBg();
 startTime();
