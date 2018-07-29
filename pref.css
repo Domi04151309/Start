@@ -9,3 +9,4 @@ h1{font-height:20px;margin:24px 0 16px 0;font-weight:600;}
 p,button{margin:0 0 10px 0;}
 button{background:#ccc;cursor:pointer;outline:0;border:2px solid #ccc;;display:inline-block;line-height:36px;padding:0 16px;}
 button:hover{border:2px solid #7a7a7a;}
+img{max-width:192px;}
