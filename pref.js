@@ -35,7 +35,7 @@ function setMode(){
     document.getElementById('mode').innerHTML = 'Text color: black';
   }else {
     setCookie("mode", "", 365);
-    document.getElementById(mode).innerHTML = 'Text color: white';
+    document.getElementById('mode').innerHTML = 'Text color: white';
   }
 }
 function getMode(){
