@@ -40,10 +40,10 @@ function setMode(){
 }
 function getMode(){
   var mode = getCookie("mode");
-  if (mode == "") {
-    document.getElementById('mode').innerHTML = 'Text color: white';
-  }else {
+  if (mode == "dark") {
     document.getElementById('mode').innerHTML = 'Text color: black';
+  }else {
+    document.getElementById('mode').innerHTML = 'Text color: white';
   }
 }
 function deleteCookies(){
