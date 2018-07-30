@@ -31,5 +31,15 @@ function checkBg(){
     document.getElementById("bg").style.backgroundImage = "url(" + background + ")";
   }
 }
+function checkMode(){
+  var mode = getCookie("mode");
+  if (mode == "dark" && !!document.getElementById("bg")) {
+    console.log("text" + mode);
+    document.getElementById("bg").style.backgroundColor = "#fff";
+    document.getElementById("bg").style.color = "#000";
+    document.getElementById("pref").style.backgroundImage = "url(./gear_black.svg)";
+  }
+}
 checkBg();
+checkMode();
 startTime();

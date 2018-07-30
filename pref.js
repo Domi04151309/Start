@@ -28,10 +28,30 @@ function getBg(){
     document.getElementById('image').innerHTML = 'The image URL is <a href="' + background + '">' + background + '</a><br><br><img src="' + background + '">';
   }
 }
+function setMode(){
+  var mode = getCookie("mode");
+  if (mode == "") {
+    setCookie("mode", "dark", 365);
+    document.getElementById('mode').innerHTML = 'Text color: black';
+  }else {
+    setCookie("mode", "", 365);
+    document.getElementById(mode).innerHTML = 'Text color: white';
+  }
+}
+function getMode(){
+  var mode = getCookie("mode");
+  if (mode == "") {
+    document.getElementById('mode').innerHTML = 'Text color: white';
+  }else {
+    document.getElementById(mode).innerHTML = 'Text color: black';
+  }
+}
 function deleteCookies(){
   removeCookie("name");
   removeCookie("image");
+  removeCookie("mode");
   document.getElementById('name').innerHTML = 'No name has been set';
   document.getElementById('image').innerHTML = 'No custom background has been set';
+  document.getElementById('mode').innerHTML = 'Text color: white';
   alert("Deleted all cookies")
 }
