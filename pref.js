@@ -43,7 +43,7 @@ function getMode(){
   if (mode == "") {
     document.getElementById('mode').innerHTML = 'Text color: white';
   }else {
-    document.getElementById(mode).innerHTML = 'Text color: black';
+    document.getElementById('mode').innerHTML = 'Text color: black';
   }
 }
 function deleteCookies(){
