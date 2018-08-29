@@ -1,12 +1,13 @@
 *{margin:0;padding:0;}
-html{width:100%;height:100%;font:14px arial, sans-serif;color:#000;background:#fff;}
-body{width:100%;height:100%;}
-header{display:flex;height:64px;background:#F2F2F2;padding:0 16px;overflow:hidden;}
+html{width:100%;height:100%;font:14px arial,sans-serif;color:#000;background:#fff;}
+body{width:100%;}
+header{position:fixed;top:0;display:flex;height:64px;width:100%;background:#F2F2F2;padding:0 16px;overflow:hidden;}
 .back{display:inline-block;margin:20px 8px;width:24px;height:24px;background:rgba(0,0,0,0) url("./back.svg") no-repeat;background-size:100% 100%;}
 h3{height:100%;display:inline-block;padding:0 8px;font-weight:400;line-height:64px;}
-article{max-width:1240px;margin:0 auto;padding:0 16px;}
+article{max-width:1240px;margin:64px auto 0;padding:1px 16px 0;}
 h1{font-height:20px;margin:24px 0 16px 0;font-weight:600;}
-p,button{margin:0 0 10px 0;}
-button{background:#ccc;cursor:pointer;outline:0;border:2px solid #ccc;;display:inline-block;line-height:36px;padding:0 16px;}
+p,button{margin:0 0 10px;}
+button{background:#ccc;cursor:pointer;outline:0;border:2px solid #ccc;display:inline-block;line-height:36px;padding:0 16px;}
 button:hover{border:2px solid #7a7a7a;}
+input[type=text]{padding:6px 3px;margin-bottom:8px;display:inline-block;width:20em;max-width:100%;border:2px solid #ccc;outline:0;}
 img{max-width:192px;}
