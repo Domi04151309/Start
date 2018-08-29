@@ -6,8 +6,9 @@ header{position:fixed;top:0;display:flex;height:64px;width:100%;background:#F2F2
 h3{height:100%;display:inline-block;padding:0 8px;font-weight:400;line-height:64px;}
 article{max-width:1240px;margin:64px auto 0;padding:1px 16px 0;}
 h1{font-height:20px;margin:24px 0 16px 0;font-weight:600;}
-p,button{margin:0 0 10px;}
-button{background:#ccc;cursor:pointer;outline:0;border:2px solid #ccc;display:inline-block;line-height:36px;padding:0 16px;}
-button:hover{border:2px solid #7a7a7a;}
-input[type=text]{padding:6px 3px;margin-bottom:8px;display:inline-block;width:20em;max-width:100%;border:2px solid #ccc;outline:0;}
+p,button,input[type=text],.input-file{margin:0 0 10px;}
+button,.input-file{vertical-align:middle;background:#ccc;cursor:pointer;outline:0;border:2px solid #ccc;display:inline-block;line-height:36px;padding:0 16px;}
+button:hover,.input-file:hover{border:2px solid #7a7a7a;}
+input[type=text]{padding:6px 3px;display:inline-block;width:20em;max-width:100%;border:2px solid #ccc;outline:0;}
+input[type="file"]{display: none;}
 img{max-width:192px;}

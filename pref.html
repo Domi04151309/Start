@@ -26,7 +26,8 @@
     <p id="image">No custom background has been set</p>
     <p id="mode">Text color: white</p>
     <input type="text" id="bgInput" placeholder="Background URL"><br>
-    <button onclick="setBg();">Set custom background</button>
+    <button onclick="setBg();">Set background URL</button>
+    <label class="input-file"><input id="bgFile" type="file" onchange="uploadBg()">Upload background</label>
     <button onclick="setMode();">Toggle text color</button>
     <h1>Cookies</h1>
     <p>

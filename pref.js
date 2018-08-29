@@ -20,16 +20,46 @@ function setBg(){
   var background = bgInput.value;
   bgInput.value = '';
   setCookie('image', background, 365);
-  if (background != '') {
+  if (background != '' && background.length <= 100) {
     document.getElementById('image').innerHTML = 'The image URL is <a href="' + background + '">' + background + '</a><br><br><img src="' + background + '">';
+  }else if (background != '' && background.length > 100){
+    document.getElementById('image').innerHTML = 'The image URL is too long to display<br><br><img src="' + background + '">';
   }else {
     document.getElementById('image').innerHTML = 'No custom background has been set';
   }
 }
 function getBg(){
   var background = getCookie('image');
-  if (background != '') {
+  if (background != '' && background.length <= 100) {
     document.getElementById('image').innerHTML = 'The image URL is <a href="' + background + '">' + background + '</a><br><br><img src="' + background + '">';
+  }else if (background != '' && background.length > 100){
+    document.getElementById('image').innerHTML = 'The image URL is too long to display<br><br><img src="' + background + '">';
+  }
+}
+function getBase64(file){
+  var reader = new FileReader();
+  reader.readAsDataURL(file);
+  reader.onload = function () {
+    var background = reader.result
+    setCookie('image', background, 365);
+  if (background != '' && background.length <= 100) {
+    document.getElementById('image').innerHTML = 'The image URL is <a href="' + background + '">' + background + '</a><br><br><img src="' + background + '">';
+  }else if (background != '' && background.length > 100){
+    document.getElementById('image').innerHTML = 'The image URL is too long to display<br><br><img src="' + background + '">';
+  }else {
+    document.getElementById('image').innerHTML = 'No custom background has been set';
+  }
+  };
+  reader.onerror = function (error) {
+    console.log('Error: ', error);
+  };
+}
+function uploadBg(){
+  var fileInput = document.getElementById('bgFile');
+  var files = fileInput.files;
+  if (files.length > 0) {
+    var background = getBase64(files[0]);
+    fileInput.value = '';
   }
 }
 function setMode(){
