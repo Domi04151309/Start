@@ -30,6 +30,9 @@ function setBg(){
 }
 function getBg(){
   var background = getCookie('image');
+  if (background.indexOf('base64') > -1 && background.startsWith('data%3A')){
+    background = decodeURIComponent(background);
+  }
   if (background != '' && background.length <= 100) {
     document.getElementById('image').innerHTML = 'The image URL is <a href="' + background + '">' + background + '</a><br><br><img src="' + background + '">';
   }else if (background != '' && background.length > 100){
@@ -40,8 +43,9 @@ function getBase64(file){
   var reader = new FileReader();
   reader.readAsDataURL(file);
   reader.onload = function () {
-    var background = reader.result
-    setCookie('image', background, 365);
+    var background = reader.result;
+    var bgCookie = encodeURIComponent(background);
+    setCookie('image', bgCookie, 365);
   if (background != '' && background.length <= 100) {
     document.getElementById('image').innerHTML = 'The image URL is <a href="' + background + '">' + background + '</a><br><br><img src="' + background + '">';
   }else if (background != '' && background.length > 100){
