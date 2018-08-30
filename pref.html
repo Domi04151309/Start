@@ -14,6 +14,7 @@
     <h3>Settings</h3>
   </header>
   <article>
+    <h2 id="log"></h2>
     <h1>Time</h1>
     <p id="time">Information currently unavailable</p>
     <h1>Message</h1>
@@ -22,12 +23,14 @@
     <p id="name">No name has been set</p>
     <input type="text" id="nameInput" placeholder="Your name"><br>
     <button onclick="setName();">Set name</button>
+    <button onclick="delName();">Delete name</button>
     <h1>Custom Background</h1>
     <p id="image">No custom background has been set</p>
     <p id="mode">Text color: white</p>
     <input type="text" id="bgInput" placeholder="Background URL"><br>
     <button onclick="setBg();">Set background URL</button>
     <label class="input-file"><input id="bgFile" type="file" onchange="uploadBg()">Upload background</label>
+    <button onclick="delBg();">Reset background</button>
     <button onclick="setMode();">Toggle text color</button>
     <h1>Cookies</h1>
     <p>
@@ -36,6 +39,7 @@
     All cookies are deleted after 365 days.
     </p>
     <button onclick="deleteCookies();">Delete all cookies</button>
+    <button onclick="window.location.href = '/cookie_policy';">Cookie policy</button>
     <script src="./cookie.js"></script>
     <script src="./script.js"></script>
     <script src="./pref.js"></script>
