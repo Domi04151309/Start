@@ -13,7 +13,7 @@ function setName(){
     nameTxt.innerHTML = 'Your name is ' + name;
     logTxt('Changed name');
   }else {
-    error(nameTxt);
+    logTxt('Error - Please enter a name first');
   }
 }
 function delName(){
@@ -41,6 +41,8 @@ function setBg(){
     }else {
       error(bgTxt);
     }
+  }else {
+    logTxt('Error - Please enter a URL first');
   }
 }
 function delBg(){
