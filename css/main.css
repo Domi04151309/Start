@@ -1,0 +1,43 @@
+*{
+  margin:0;
+  padding:0;
+}
+html{
+  width:100%;
+  height:100%;
+  font:14px arial, sans-serif;
+  color:#fff;
+  background:#000 url(../images/bg.jpg) no-repeat;
+  background-size:cover;
+}
+body{
+  width:100%;
+  height:100%;
+}
+.center{
+  position:absolute;
+  top:50%;
+  left:50%;
+  margin-right:-50%;
+  transform:translate(-50%, -50%);
+  text-align:center;
+}
+h1{
+  font-size:8vw;
+}
+p{
+  font-size:4vw;
+}
+#pref{
+  position:fixed;
+  bottom:0;
+  right:0;
+  width:4vh;
+  height:4vh;
+  background:rgba(0,0,0,0) url(../images/gear.svg) no-repeat;
+  background-size:100% 100%;
+  transition:transform .8s ease-in-out;
+}
+#pref:hover{
+  transform:rotate(180deg);
+}

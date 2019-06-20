@@ -37,7 +37,7 @@ function checkMode(){
     console.log("text" + mode);
     document.getElementById("bg").style.backgroundColor = "#fff";
     document.getElementById("bg").style.color = "#000";
-    document.getElementById("pref").style.backgroundImage = "url(./gear_black.svg)";
+    document.getElementById("pref").style.backgroundImage = "url(./images/gear_black.svg)";
   }
 }
 checkBg();
