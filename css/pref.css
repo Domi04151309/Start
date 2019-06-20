@@ -84,8 +84,3 @@ input[type="file"]{
 img{
   max-width:192px;
 }
-
-/*Experimental*/
-.input-file{
-  display:none;
-}

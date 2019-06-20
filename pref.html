@@ -25,25 +25,15 @@
     <button onclick="setName();">Set name</button>
     <button onclick="delName();">Delete name</button>
     <h1>Custom Background</h1>
-    <p id="image">No custom background has been set</p>
     <p id="mode">Text color: white</p>
+    <img id="background" src="./images/bg.jpg"><br>
     <input type="text" id="bgInput" placeholder="Background URL"><br>
     <button onclick="setBg();">Set background URL</button>
     <label class="input-file"><input id="bgFile" type="file" onchange="uploadBg()">Upload background</label>
     <button onclick="delBg();">Reset background</button>
     <button onclick="setMode();">Toggle text color</button>
-    <h1>Cookies</h1>
-    <p>
-    This website uses cookies to give you the best possible online experience by storing the name you entered and the URL of your custom wallpaper.<br>
-    If you do not agree, you can avoid creating cookies by setting no name and no custom background. You can delete all the cookies you have already set below.<br>
-    All cookies are deleted after 365 days.
-    </p>
-    <button onclick="deleteCookies();">Delete all cookies</button>
-    <button onclick="window.location.href = '/cookie_policy';">Cookie policy</button>
-    <script src="./js/cookie.js"></script>
     <script src="./js/script.js"></script>
     <script src="./js/pref.js"></script>
-    <script>getName();getBg();getMode();</script>
   </article>
 </body>
 </html>
