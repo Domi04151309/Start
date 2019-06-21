@@ -6,12 +6,13 @@
 	<link rel="stylesheet" type="text/css" href="./css/pref.css" />
 	<link rel="icon" href="./favicon.ico">
 	<meta name="theme-color" content="#000000">
+  <meta name="description" content="A simple homepage for your browser">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="manifest" href="/Start/pwa/manifest.json">
 </head>
 <body>
   <header>
-    <a href="./" class="back"></a>
+    <a href="./" class="back" aria-label="Back"></a>
     <h3>Settings</h3>
   </header>
   <article>
@@ -22,20 +23,20 @@
     <p id="message">Information currently unavailable</p>
     <h1>Name</h1>
     <p id="name">No name has been set</p>
-    <input type="text" id="nameInput" placeholder="Your name"><br>
+    <input type="text" id="nameInput" placeholder="Your name" aria-label="Your Name"><br>
     <button onclick="setName();">Set name</button>
     <button onclick="delName();">Delete name</button>
     <h1>Custom Background</h1>
     <p id="mode">Text color: white</p>
-    <img id="background" src="./images/bg.jpg"><br>
-    <input type="text" id="bgInput" placeholder="Background URL"><br>
+    <img id="background" src="./images/bg.jpg" alt="Preview of your background"><br>
+    <input type="text" id="bgInput" placeholder="Background URL" aria-label="Background URL"><br>
     <button onclick="setBg();">Set background URL</button>
     <label class="input-file"><input id="bgFile" type="file" onchange="uploadBg()">Upload background</label>
     <button onclick="delBg();">Reset background</button>
     <button onclick="setMode();">Toggle text color</button>
   </article>
   <script src="./js/script.js"></script>
-  <script src="./js/pref.js"></script>
+  <script src="./js/pref.js" async></script>
   <script>
     let newWorker
     if ('serviceWorker' in navigator) {
