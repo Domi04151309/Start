@@ -7,6 +7,7 @@
 	<link rel="icon" href="./favicon.ico">
 	<meta name="theme-color" content="#000000">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="manifest" href="/Start/pwa/manifest.json">
 </head>
 <body>
   <header>
@@ -32,8 +33,35 @@
     <label class="input-file"><input id="bgFile" type="file" onchange="uploadBg()">Upload background</label>
     <button onclick="delBg();">Reset background</button>
     <button onclick="setMode();">Toggle text color</button>
-    <script src="./js/script.js"></script>
-    <script src="./js/pref.js"></script>
   </article>
+  <script src="./js/script.js"></script>
+  <script src="./js/pref.js"></script>
+  <script>
+    let newWorker
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/Start/sw.js').then(function(registration) {
+           registration.addEventListener('updatefound', () => {
+            newWorker = registration.installing;
+            newWorker.addEventListener('statechange', () => {
+              if (newWorker.state == 'installed' && navigator.serviceWorker.controller) {
+                newWorker.postMessage({ action: 'skipWaiting' });
+              }
+            });
+          });
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }, function(err) {
+          console.log('ServiceWorker registration failed: ', err);
+        });
+      });
+
+      let refreshing;
+      navigator.serviceWorker.addEventListener('controllerchange', function () {
+        if (refreshing) return;
+        window.location.reload();
+        refreshing = true;
+      });
+    }
+  </script>
 </body>
 </html>
