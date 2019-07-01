@@ -1,17 +1,15 @@
 *{
   margin:0;
-  padding:0;
 }
 html{
-  width:100%;
   height:100%;
   font:14px arial, sans-serif;
   color:#fff;
   background:#000 url(../images/bg.jpg) no-repeat;
   background-size:cover;
+  background-position:center;
 }
 body{
-  width:100%;
   height:100%;
 }
 .center{
@@ -24,6 +22,8 @@ body{
 }
 h1{
   font-size:8vw;
+  font-weight:normal;
+  margin:0 0 1vw
 }
 p{
   font-size:4vw;
