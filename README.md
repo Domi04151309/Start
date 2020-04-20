@@ -1,3 +1,4 @@
+![App Icon](https://raw.githubusercontent.com/Domi04151309/Start/master/pwa/mipmap-xxxhdpi/ic_launcher.png)
 # Start
 A simple customizable homepage for your browser.  
  
