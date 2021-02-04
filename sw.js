@@ -1,70 +1,65 @@
 ---
-# Service worker for Jekyll
+# Service Worker for Jekyll
 ---
-var CACHE_NAME = 'start-cache-{{ site.time | date: "%Y-%m-%d-%H:%M" }}';
+var CACHE_NAME = 'start-{{ site.time | date: "%Y-%m-%d-%H:%M" }}';
 var urlsToCache = [
-  './',
-  './pref',
-  './css/main.css',
-  './css/pref.css',
-  './js/pref.js',
-  './js/script.js',
-  './images/back.svg',
-  './images/bg.jpg',
-  './images/gear_black.svg',
-  './images/gear.svg'
+  {% for file in site.static_files %}'{{ site.baseurl }}{{ file.path }}',
+  {% endfor %}
+  '/'
 ];
 
-self.addEventListener('install', function(event) {
+self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME)
-      .then(function(cache) {
+      .then(cache => {
         console.log('Opened cache');
         return cache.addAll(urlsToCache);
       })
   );
 });
 
-self.addEventListener('message', function (event) {
+self.addEventListener('message', event => {
   if (event.data.action === 'skipWaiting') {
     self.skipWaiting();
   }
 });
 
-self.addEventListener('fetch', function(event) {
+self.addEventListener('fetch', event => {
   event.respondWith(
-    caches.match(event.request).then(function(response) {
+    caches.match(event.request).then(response => {
       if (response) {
         return response;
       }
 
       return fetch(event.request).then(
-        function(response) {
+        response => {
           if(!response || response.status !== 200 || response.type !== 'basic') {
             return response;
           }
 
           var responseToCache = response.clone();
 
-          caches.open(CACHE_NAME).then(function(cache) {
+          caches.open(CACHE_NAME).then(cache => {
             cache.put(event.request, responseToCache);
           });
 
           return response;
         }
       );
+    }).catch(() => {
+      return caches.match('/');
     })
   );
 });
 
-self.addEventListener('activate', function(event) {
+self.addEventListener('activate', event => {
 
   var cacheWhitelist = [CACHE_NAME];
 
   event.waitUntil(
-    caches.keys().then(function(cacheNames) {
+    caches.keys().then(cacheNames => {
       return Promise.all(
-        cacheNames.map(function(cacheName) {
+        cacheNames.map(cacheName => {
           if (cacheWhitelist.indexOf(cacheName) === -1) {
             return caches.delete(cacheName);
           }

@@ -1,43 +1,46 @@
+---
+layout: null
+---
 {
   "short_name": "Start",
   "name": "Start",
-  "description": "A simple homepage for your browser",
+  "description": "A simple home page for your browser",
   "icons": [
     {
-      "src": "./mipmap-mdpi/ic_launcher.png",
+      "src": "{{ site.baseurl }}/pwa/mipmap-mdpi/ic_launcher.png",
       "type": "image/png",
       "sizes": "48x48"
     },
     {
-      "src": "./mipmap-hdpi/ic_launcher.png",
+      "src": "{{ site.baseurl }}/pwa/mipmap-hdpi/ic_launcher.png",
       "type": "image/png",
       "sizes": "72x72"
     },
     {
-      "src": "./mipmap-xhdpi/ic_launcher.png",
+      "src": "{{ site.baseurl }}/pwa/mipmap-xhdpi/ic_launcher.png",
       "type": "image/png",
       "sizes": "96x96"
     },
     {
-      "src": "./mipmap-xxhdpi/ic_launcher.png",
+      "src": "{{ site.baseurl }}/pwa/mipmap-xxhdpi/ic_launcher.png",
       "type": "image/png",
       "sizes": "144x144"
     },
     {
-      "src": "./mipmap-xxxhdpi/ic_launcher.png",
+      "src": "{{ site.baseurl }}/pwa/mipmap-xxxhdpi/ic_launcher.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "./logo.png",
+      "src": "{{ site.baseurl }}/pwa/logo.png",
       "type": "image/png",
       "sizes": "512x512"
     }
   ],
-  "start_url": "/Start/",
+  "start_url": "{{ site.baseurl }}/",
   "background_color": "#fff",
   "display": "browser",
   "orientation": "any",
-  "scope": "/Start/",
+  "scope": "{{ site.baseurl }}/",
   "theme_color": "#fff"
 }

@@ -1,45 +1,38 @@
-var today = new Date()
-var h = today.getHours()
-var m = today.getMinutes()
-var message = "Hello"
+const today = new Date()
 const timeTxt = document.getElementById('time')
 const messageTxt = document.getElementById('message')
-const bg = document.getElementById("bg")
-const name = localStorage.getItem("name")
-const displayName = (name == null) ? "" : " " + name
-const background = localStorage.getItem("background")
-const mode = localStorage.getItem("mode")
 
 function startTime() {
-	h = today.getHours()
-	m = today.getMinutes()
-  if (m < 10) {
-    m = "0" + m
-  }
-	timeTxt.innerHTML = h + ":" + m
-  if (h >= 0 && h < 12) {
-    message = "Good Morning"
-  } else if (h >= 12 && h < 18) {
-    message = "Good Afternoon"
-	} else if (h >= 18 && h < 22) {
-    message = "Good Evening"
-	} else if (h >= 21 && h < 25) {
-    message = "Good Night"
-	} else {
-    message = "Hello"
-  }
-  messageTxt.innerHTML = message + displayName
-	setTimeout(startTime, 1000)
+	let h = today.getHours()
+	let m = today.getMinutes()
+  if (m < 10) m = '0' + m
+	timeTxt.innerHTML = h + ':' + m
+
+	let message = 'Hello'
+  if (h < 12) {
+    message = 'Good Morning'
+  } else if (h < 18) {
+    message = 'Good Afternoon'
+	} else if (h < 22) {
+    message = 'Good Evening'
+	} else if (h < 25) {
+    message = 'Good Night'
+	}
+  messageTxt.innerHTML = [message, localStorage.getItem('name')].filter(x => x != null && x.length > 0).join(' ')
+	setTimeout(startTime, 60000)
 }
 
-if (background != null && !!document.getElementById("bg")) {
-  bg.style.backgroundImage = "url(" + background + ")"
-}
+const backgroundView = document.getElementById('bg')
+const background = localStorage.getItem('background')
+const mode = localStorage.getItem('mode')
 
-if (mode == "dark" && !!document.getElementById("bg")) {
-  bg.style.backgroundColor = "#fff"
-  bg.style.color = "#000"
-  document.getElementById("pref").style.backgroundImage = "url(./images/gear_black.svg)"
+if (background != null) {
+  backgroundView.style.backgroundImage = 'url(' + background + ')'
+}
+if (mode == 'dark') {
+  backgroundView.style.backgroundColor = '#fff'
+  backgroundView.style.color = '#000'
+  document.getElementById('pref').style.backgroundImage = 'url(./images/gear_black.svg)'
 }
 
 startTime()

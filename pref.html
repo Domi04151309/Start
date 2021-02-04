@@ -1,74 +1,79 @@
+---
+---
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<title>Start</title>
-	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="./css/pref.css" />
-	<link rel="icon" href="./favicon.ico">
-	<meta name="theme-color" content="#000000">
-  <meta name="description" content="A simple homepage for your browser">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="manifest" href="/Start/pwa/manifest.json">
-</head>
-<body>
-  <header>
-    <a href="./" class="back" aria-label="Back"></a>
-    <h3>Settings</h3>
-  </header>
-  <article>
-    <h2 id="log"></h2>
-    <h1>Time</h1>
-    <p id="time">Information currently unavailable</p>
-    <h1>Message</h1>
-    <p id="message">Information currently unavailable</p>
-    <h1>Name</h1>
-    <p id="name">No name has been set</p>
-    <input type="text" id="nameInput" placeholder="Your name" aria-label="Your Name"><br>
-    <button onclick="setName();">Set name</button>
-    <button onclick="delName();">Delete name</button>
-    <h1>Custom Background</h1>
-    <p id="mode">Text color: white</p>
-    <img id="background" src="./images/bg.jpg" alt="Preview of your background"><br>
-    <input type="text" id="bgInput" placeholder="Background URL" aria-label="Background URL"><br>
-    <button onclick="setBg();">Set background URL</button>
-    <label class="input-file"><input id="bgFile" type="file" onchange="uploadBg()">Upload background</label>
-    <button onclick="delBg();">Reset background</button>
-    <button onclick="setMode();">Toggle text color</button>
-    <h1>About</h1>
-    <p>
-      A simple customizable homepage for your browser.<br>
-      Icons by <a href="https://icons8.com/">Icons8</a> and <a href="https://material.io/resources/icons/">Google</a><br>
-      Background image by <a href="https://unsplash.com/photos/R4y_E5ZQDPg">Cristina Gottardi on Unsplash</a>
-    </p>
-  </article>
-  <script src="./js/script.js"></script>
-  <script src="./js/pref.js" async></script>
-  <script>
-    let newWorker
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', function() {
-        navigator.serviceWorker.register('/Start/sw.js').then(function(registration) {
-           registration.addEventListener('updatefound', () => {
-            newWorker = registration.installing;
-            newWorker.addEventListener('statechange', () => {
-              if (newWorker.state == 'installed' && navigator.serviceWorker.controller) {
-                newWorker.postMessage({ action: 'skipWaiting' });
-              }
-            });
-          });
-          console.log('ServiceWorker registration successful with scope: ', registration.scope);
-        }, function(err) {
-          console.log('ServiceWorker registration failed: ', err);
-        });
-      });
+	<head>
+		<title>Start</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/pref.min.css" />
+		<link rel="icon" href="{{ site.baseurl }}/favicon.ico">
+		<meta name="theme-color" content="#000000">
+	  <meta name="description" content="A simple home page for your browser">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  <link rel="manifest" href="{{ site.baseurl }}/pwa/manifest.json">
+	</head>
+	<body>
+	  <header>
+	    <a href="./" class="back" aria-label="Back"></a>
+	    <h1>Settings</h1>
+	  </header>
+	  <main>
+	    <h2>Your Name</h2>
+			<p>
+				Your name will be used to personalize the welcome message.
+				Currently the custom name is <span id="name">not set</span>.
+			</p>
+	    <input type="text" id="nameInput" placeholder="Your name" aria-label="Your Name"><br>
+	    <button onclick="setName()">Set name</button>
+	    <button onclick="delName()">Delete name</button>
+	    <h2>Background Image</h2>
+			<p>
+				You can upload a custom background image that will be used on the page.
+				You can see the current background image below.
+				The current text color is <span id="mode">white</span>.
+			</p>
+	    <img id="background" src="./images/bg.jpg" alt="Preview of your background"><br>
+	    <label class="input-file"><input id="bgFile" type="file" onchange="setBg()">Upload image</input></label>
+	    <button onclick="delBg()">Reset background</button>
+	    <button onclick="setMode()">Toggle text color</button>
+	    <h2>About</h2>
+	    <p>
+	      A simple customizable homepage for your browser.<br>
+	      Icons by <a href="https://icons8.com/">Icons8</a> and <a href="https://material.io/resources/icons/">Google</a><br>
+	      Background image by <a href="https://unsplash.com/photos/R4y_E5ZQDPg">Cristina Gottardi on Unsplash</a>
+	    </p>
+	  </main>
+	  <script src="{{ site.baseurl }}/js/pref.js" async></script>
+	  <script>
+			let newWorker
+			if ('serviceWorker' in navigator) {
+				window.addEventListener('load', () => {
+					navigator.serviceWorker.register('{{ site.baseurl }}/sw.js').then( registration => {
+						 registration.addEventListener('updatefound', () => {
+							newWorker = registration.installing;
+							newWorker.addEventListener('statechange', () => {
+								switch (newWorker.state) {
+									case 'installed':
+										if (navigator.serviceWorker.controller) {
+											newWorker.postMessage({ action: 'skipWaiting' });
+										}
+										break;
+								}
+							});
+						});
+						console.log('ServiceWorker registration successful with scope: ', registration.scope);
+					}, err => {
+						console.log('ServiceWorker registration failed: ', err);
+					});
+				});
 
-      let refreshing;
-      navigator.serviceWorker.addEventListener('controllerchange', function () {
-        if (refreshing) return;
-        window.location.reload();
-        refreshing = true;
-      });
-    }
-  </script>
-</body>
+				let refreshing;
+				navigator.serviceWorker.addEventListener('controllerchange', () => {
+					if (refreshing) return;
+					window.location.reload();
+					refreshing = true;
+				});
+			}
+	  </script>
+	</body>
 </html>
