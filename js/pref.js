@@ -54,8 +54,8 @@ function setMode() {
 
 function logTxt(action) {
 	let elem = document.createElement('p')
-  elem.innerHTML = 'Last Action: ' + action
-	elem.classList.add('logs')
+  elem.innerHTML = action
+	elem.classList.add('log')
 	document.body.appendChild(elem)
 	setTimeout(() => {
 		document.body.removeChild(elem)
