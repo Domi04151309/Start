@@ -1,14 +1,15 @@
-const today = new Date()
 const timeTxt = document.getElementById('time')
 const messageTxt = document.getElementById('message')
+let date, h, m, message
 
 function startTime() {
-	let h = today.getHours()
-	let m = today.getMinutes()
+	date = new Date()
+	h = date.getHours()
+	m = date.getMinutes()
   if (m < 10) m = '0' + m
 	timeTxt.innerHTML = h + ':' + m
 
-	let message = 'Hello'
+	message = 'Hello'
   if (h < 12) {
     message = 'Good Morning'
   } else if (h < 18) {

@@ -40,6 +40,7 @@ self.addEventListener('fetch', event => {
           var responseToCache = response.clone();
 
           caches.open(CACHE_NAME).then(cache => {
+            if (event.request.url.indexOf('http') !== 0) return;
             cache.put(event.request, responseToCache);
           });
 
