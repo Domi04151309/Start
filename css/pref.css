@@ -39,6 +39,7 @@
   }
 }
 * {
+  box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
 }
 html, body {
@@ -83,14 +84,13 @@ h1, h2 {
   font-weight: normal;
   color: var(--text-color);
 }
-button, .input-file, input[type=text], .log, img {
-  display: inline-block;
+button, .input-file, input[type=text], input[type=color], .log, img {
   margin: 0 0 16px;
   border: 0;
   border-radius: var(--border-radius);
   box-shadow: var(--card-shadow);
 }
-button, .input-file, input[type=text], .log {
+button, .input-file, input[type=text], input[type=color], .log {
   padding: 8px 16px;
   font-size: 12px;
   line-height: 1.25;
@@ -98,6 +98,7 @@ button, .input-file, input[type=text], .log {
   outline: none;
 }
 button, .input-file {
+  display: inline-block;
   background: var(--accent-color);
   color: #fff;
   cursor: pointer;
@@ -109,11 +110,13 @@ button:hover, .input-file:hover {
 button:active, .input-file:active {
   filter: brightness(.8);
 }
-input[type=text] {
-  width: calc(100% - 32px);
+input[type=text], input[type=color] {
+  display: block;
+  width: 100%;
   background: #fff;
 }
 .log {
+  display: inline-block;
   position: fixed;
   top: 56px;
   left: 50%;
@@ -128,10 +131,22 @@ input[type=text] {
   animation: fadeLog 1s;
 }
 img {
+  display: block;
   max-width: 100%;
 }
 input[type="file"] {
   display: none;
+}
+input[type=color] {
+	-webkit-appearance: none;
+  padding: 0;
+  overflow: hidden;
+}
+input[type=color]::-webkit-color-swatch-wrapper {
+	padding: 0;
+}
+input[type=color]::-webkit-color-swatch {
+	border: none;
 }
 a {
   text-decoration: none;

@@ -23,19 +23,25 @@
 				Your name will be used to personalize the welcome message.
 				Currently the custom name is <span id="name">not set</span>.
 			</p>
-	    <input type="text" id="nameInput" placeholder="Your name" aria-label="Your Name"><br>
+	    <input type="text" id="nameInput" placeholder="Your name" aria-label="Your Name">
 	    <button onclick="setName()">Set name</button>
 	    <button onclick="delName()">Delete name</button>
 	    <h2>Background Image</h2>
 			<p>
 				You can upload a custom background image that will be used on the page.
 				You can see the current background image below.
-				The current text color is <span id="mode">white</span>.
 			</p>
-	    <img id="background" src="./images/bg.jpg" alt="Preview of your background"><br>
+	    <img id="background" src="./images/bg.jpg" alt="Preview of your background">
 	    <label class="input-file"><input id="bgFile" type="file" onchange="setBg()">Upload image</input></label>
 	    <button onclick="delBg()">Reset background</button>
-	    <button onclick="setMode()">Toggle text color</button>
+	    <h2>Text Color</h2>
+			<p>
+				You can set a custom text color that will be used on the page.
+				You can see the current text color below.
+			</p>
+	    <input type="color" id="colorInput" value="#ffffff" aria-label="Text color">
+	    <button onclick="setTextColor()">Set color</button>
+	    <button onclick="resetTextColor()">Reset color</button>
 	    <h2>About</h2>
 	    <p>
 	      A simple customizable homepage for your browser.<br>

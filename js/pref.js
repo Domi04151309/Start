@@ -1,8 +1,8 @@
 const nameTxt = document.getElementById('name')
 const nameInput = document.getElementById('nameInput')
-const colorTxt = document.getElementById('mode')
 const bgImage = document.getElementById('background')
 const bgFile = document.getElementById('bgFile')
+const colorInput = document.getElementById('colorInput')
 
 function setName() {
 	if (nameInput.value != '') {
@@ -41,15 +41,15 @@ function delBg() {
   logTxt('Reset background')
 }
 
-function setMode() {
-  if (localStorage.getItem('mode') == null) {
-    localStorage.setItem('mode', 'dark');
-    colorTxt.innerHTML = 'black'
-  } else {
-    localStorage.removeItem('mode')
-    colorTxt.innerHTML = 'white'
-  }
-  logTxt('Changed text color to ' + colorTxt.innerHTML)
+function setTextColor() {
+	localStorage.setItem('text-color', colorInput.value)
+	logTxt('Changed name to "' + colorInput.value + '"')
+}
+
+function resetTextColor() {
+  localStorage.removeItem('text-color')
+  colorInput.value = '#ffffff'
+  logTxt('Reset text color')
 }
 
 function logTxt(action) {
@@ -64,14 +64,8 @@ function logTxt(action) {
 
 const name = localStorage.getItem('name')
 const background = localStorage.getItem('background')
-const mode = localStorage.getItem('mode')
+const textColor = localStorage.getItem('text-color')
 
-if (name != null) {
-  nameTxt.innerHTML = name
-}
-if (background != null) {
-  bgImage.src = background
-}
-if (mode == 'dark') {
-  colorTxt.innerHTML = 'black'
-}
+if (name != null) nameTxt.innerHTML = name
+if (background != null) bgImage.src = background
+if (textColor != null) colorInput.value = textColor

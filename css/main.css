@@ -35,7 +35,6 @@ p {
   width: 4vh;
   height: 4vh;
   margin: 16px;
-  background: rgba(0,0,0,0) center/cover url(../images/gear.svg) no-repeat;
   transition:transform .8s ease-in-out;
 }
 #pref:hover {
