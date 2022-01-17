@@ -35,6 +35,22 @@ function setBg() {
   }
 }
 
+function randomBg() {
+	fetch("https://source.unsplash.com/featured/1920x1080/?nature").then(response => {
+		return response.blob()
+	}).then(blob => {
+		let reader = new FileReader()
+		reader.readAsDataURL(blob)
+		reader.onload = () => {
+			localStorage.setItem('background', reader.result)
+			bgImage.src = reader.result
+		}
+		reader.onerror = error => {
+			logTxt('Error: ', error)
+		}
+	})
+}
+
 function delBg() {
   localStorage.removeItem('background')
   bgImage.src = './images/bg.jpg'
