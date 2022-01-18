@@ -74,6 +74,9 @@ h1 {
   font-size: 1.17em;
   line-height: 56px;
 }
+h2 {
+  margin: 1.66em 0 .83em;
+}
 main {
   max-width: 480px;
   margin: 56px auto 0;
@@ -85,12 +88,12 @@ h1, h2 {
   color: var(--text-color);
 }
 button, .input-file, input[type=text], input[type=color], .log, img {
-  margin: 0 0 16px;
   border: 0;
   border-radius: var(--border-radius);
   box-shadow: var(--card-shadow);
 }
 button, .input-file, input[type=text], input[type=color], .log {
+  margin: 0 0 16px;
   padding: 8px 16px;
   font-size: 12px;
   line-height: 1.25;
@@ -179,4 +182,36 @@ a {
 }
 a:hover {
   text-decoration: underline;
+}
+@media only screen and (min-width: 768px) {
+  main {
+    max-width: 1080px;
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+    gap: 32px;
+  }
+  section:first-child, section:nth-child(5) {
+    margin: 2rem 0 0;
+  }
+  section:first-child {
+    order: 0;
+  }
+  section:nth-child(2) {
+    order: 3;
+  }
+  img:nth-child(3) {
+    order: 2;
+  }
+  section:nth-child(4) {
+    order: 4;
+  }
+  section:nth-child(5) {
+    order: 1;
+  }
+  section:nth-child(6) {
+    order: 5;
+  }
+  h2 {
+    margin: 0 0 .83em;
+  }
 }
