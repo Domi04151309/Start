@@ -1,13 +1,15 @@
+:root {
+  --bg: url(../images/bg.jpg);
+  --text-color: #ffffff;
+}
 * {
   margin: 0;
 }
 html {
   height: 100%;
   font: 14px arial, sans-serif;
-  color: #fff;
-  background: #000 url(../images/bg.jpg) no-repeat;
-  background-size: cover;
-  background-position: center;
+  color: var(--text-color);
+  background: #000 center/cover var(--bg) no-repeat;
 }
 body {
   height: 100%;

@@ -23,14 +23,11 @@ function startTime() {
 	setTimeout(startTime, 60000)
 }
 
-const backgroundView = document.getElementById('bg')
+const mainStyle = document.documentElement.style
 const background = localStorage.getItem('background')
-const textColor = localStorage.getItem('text-color') || '#ffffff'
+const textColor = localStorage.getItem('text-color')
 
-if (background != null) {
-  backgroundView.style.backgroundImage = 'url(' + background + ')'
-}
-backgroundView.style.color = textColor
-document.querySelector('#pref path').style.fill = textColor
+if (background != null) mainStyle.setProperty('--bg', 'url(' + background + ')')
+if (textColor != null) mainStyle.setProperty('--text-color', textColor)
 
 startTime()
