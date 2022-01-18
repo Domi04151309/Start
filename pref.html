@@ -22,10 +22,9 @@
 			<p>
 				Your name will be used to personalize the welcome message.
 				Currently the custom name is <span id="name">not set</span>.
+				You can enter a name below.
 			</p>
-	    <input type="text" id="nameInput" placeholder="Your name" aria-label="Your Name">
-	    <button onclick="setName()">Set name</button>
-	    <button onclick="delName()">Delete name</button>
+	    <input type="text" id="nameInput" placeholder="Your name" aria-label="Your Name" onchange="setName()">
 	    <h2>Background Image</h2>
 			<p>
 				You can upload a custom background image that will be used on the page.
@@ -38,11 +37,9 @@
 	    <h2>Text Color</h2>
 			<p>
 				You can set a custom text color that will be used on the page.
-				You can see the current text color below.
+				Click the box below to choose a color.
 			</p>
-	    <input type="color" id="colorInput" value="#ffffff" aria-label="Text color">
-	    <button onclick="setTextColor()">Set color</button>
-	    <button onclick="resetTextColor()">Reset color</button>
+	    <input type="color" id="colorInput" value="#ffffff" aria-label="Text color" onchange="setTextColor()">
 	    <h2>Background Blur</h2>
 			<p>
 				Adjust the amount of blur on the background image with the slider below.

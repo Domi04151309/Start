@@ -19,7 +19,7 @@ function startTime() {
 	} else if (h < 25) {
     message = 'Good Night'
 	}
-  messageTxt.innerHTML = [message, localStorage.getItem('name')].filter(x => x != null && x.length > 0).join(' ')
+  messageTxt.innerHTML = [message, localStorage.getItem('name') || ''].filter(x => x.length > 0).join(' ')
 	setTimeout(startTime, 60000)
 }
 

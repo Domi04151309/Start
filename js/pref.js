@@ -6,20 +6,8 @@ const colorInput = document.getElementById('colorInput')
 const blurInput = document.getElementById('blurInput')
 
 function setName() {
-	if (nameInput.value != '') {
-    localStorage.setItem('name', nameInput.value)
-    nameTxt.innerHTML = nameInput.value
-    logTxt('Changed name to "' + nameInput.value + '"')
-		nameInput.value = ''
-  } else {
-    logTxt('Error - Please enter a name first')
-  }
-}
-
-function delName() {
-  localStorage.removeItem('name')
-  nameTxt.innerHTML = 'not set'
-  logTxt('Deleted name')
+	localStorage.setItem('name', nameInput.value)
+	nameTxt.innerHTML = nameInput.value.length > 0 ? nameInput.value : 'not set'
 }
 
 function setBg() {
@@ -60,13 +48,6 @@ function delBg() {
 
 function setTextColor() {
 	localStorage.setItem('text-color', colorInput.value)
-	logTxt('Changed name to "' + colorInput.value + '"')
-}
-
-function resetTextColor() {
-  localStorage.removeItem('text-color')
-  colorInput.value = '#ffffff'
-  logTxt('Reset text color')
 }
 
 function setBlur() {
@@ -88,7 +69,10 @@ const background = localStorage.getItem('background')
 const textColor = localStorage.getItem('text-color')
 const blur = localStorage.getItem('blur')
 
-if (name != null) nameTxt.innerHTML = name
+if (name != null && name.length > 0) {
+	nameTxt.innerHTML = name
+	nameInput.value = name
+}
 if (background != null) bgImage.src = background
 if (textColor != null) colorInput.value = textColor
 if (blur != null) blurInput.value = blur

@@ -114,6 +114,7 @@ input[type=text], input[type=color] {
   display: block;
   width: 100%;
   background: #fff;
+  color: var(--text-color-secondary);
 }
 .log {
   display: inline-block;
@@ -141,6 +142,7 @@ input[type=color] {
 	-webkit-appearance: none;
   padding: 0;
   overflow: hidden;
+  cursor: pointer;
 }
 input[type=color]::-webkit-color-swatch-wrapper {
 	padding: 0;
