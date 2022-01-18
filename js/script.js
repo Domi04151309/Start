@@ -26,8 +26,10 @@ function startTime() {
 const mainStyle = document.documentElement.style
 const background = localStorage.getItem('background')
 const textColor = localStorage.getItem('text-color')
+const blur = localStorage.getItem('blur')
 
 if (background != null) mainStyle.setProperty('--bg', 'url(' + background + ')')
 if (textColor != null) mainStyle.setProperty('--text-color', textColor)
+if (blur != null) mainStyle.setProperty('--blur', (blur / 10) + 'px')
 
 startTime()

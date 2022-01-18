@@ -1,6 +1,7 @@
 :root {
   --bg: url(../images/bg.jpg);
   --text-color: #ffffff;
+  --blur: 0;
 }
 * {
   margin: 0;
@@ -10,6 +11,22 @@ html {
   font: 14px arial, sans-serif;
   color: var(--text-color);
   background: #000 center/cover var(--bg) no-repeat;
+}
+html::before {
+  content: "";
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  display: block;
+  background: #000 center/cover var(--bg) no-repeat;
+  width: 100%;
+  height: 100%;
+  -webkit-filter: blur(var(--blur));
+  -moz-filter: blur(var(--blur));
+  -o-filter: blur(var(--blur));
+  -ms-filter: blur(var(--blur));
+  filter: blur(var(--blur));
 }
 body {
   height: 100%;

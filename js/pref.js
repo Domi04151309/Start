@@ -3,6 +3,7 @@ const nameInput = document.getElementById('nameInput')
 const bgImage = document.getElementById('background')
 const bgFile = document.getElementById('bgFile')
 const colorInput = document.getElementById('colorInput')
+const blurInput = document.getElementById('blurInput')
 
 function setName() {
 	if (nameInput.value != '') {
@@ -68,6 +69,10 @@ function resetTextColor() {
   logTxt('Reset text color')
 }
 
+function setBlur() {
+	localStorage.setItem('blur', blurInput.value)
+}
+
 function logTxt(action) {
 	let elem = document.createElement('p')
   elem.innerHTML = action
@@ -81,7 +86,9 @@ function logTxt(action) {
 const name = localStorage.getItem('name')
 const background = localStorage.getItem('background')
 const textColor = localStorage.getItem('text-color')
+const blur = localStorage.getItem('blur')
 
 if (name != null) nameTxt.innerHTML = name
 if (background != null) bgImage.src = background
 if (textColor != null) colorInput.value = textColor
+if (blur != null) blurInput.value = blur
