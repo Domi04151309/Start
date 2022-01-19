@@ -87,7 +87,7 @@ h1, h2 {
   font-weight: normal;
   color: var(--text-color);
 }
-button, .input-file, input[type=text], input[type=color], .log, img {
+button, .input-file, input[type=text], input[type=color], .log, #img-container {
   border: 0;
   border-radius: var(--border-radius);
   box-shadow: var(--card-shadow);
@@ -133,6 +133,10 @@ input[type=text], input[type=color] {
   text-align: center;
   z-index: 25;
   animation: fadeLog 1s;
+}
+#img-container {
+  display: block;
+  overflow: hidden;
 }
 img {
   display: block;
@@ -199,7 +203,7 @@ a:hover {
   section:nth-child(2) {
     order: 3;
   }
-  img:nth-child(3) {
+  section:nth-child(3) {
     order: 2;
   }
   section:nth-child(4) {

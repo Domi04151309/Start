@@ -30,6 +30,6 @@ const blur = localStorage.getItem('blur')
 
 if (background != null) mainStyle.setProperty('--bg', 'url(' + background + ')')
 if (textColor != null) mainStyle.setProperty('--text-color', textColor)
-if (blur != null) mainStyle.setProperty('--blur', (blur / 10) + 'px')
+if (blur != null) mainStyle.setProperty('--blur', (blur / 100) + 'vh')
 
 startTime()

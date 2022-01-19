@@ -52,6 +52,7 @@ function setTextColor() {
 
 function setBlur() {
 	localStorage.setItem('blur', blurInput.value)
+	bgImage.style.filter = 'blur(' + (blurInput.value / 100) + 'vh)'
 }
 
 function logTxt(action) {
@@ -75,4 +76,7 @@ if (name != null && name.length > 0) {
 }
 if (background != null) bgImage.src = background
 if (textColor != null) colorInput.value = textColor
-if (blur != null) blurInput.value = blur
+if (blur != null) {
+	blurInput.value = blur
+	bgImage.style.filter = 'blur(' + (blur / 100) + 'vh)'
+}
