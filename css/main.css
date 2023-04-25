@@ -8,7 +8,7 @@
 }
 html {
   height: 100%;
-  font: 14px arial, sans-serif;
+  font: 14px sans-serif;
   color: var(--text-color);
   background: #000 center/cover var(--bg) no-repeat;
 }
@@ -46,6 +46,10 @@ h1 {
 }
 p {
   font-size: 4vw;
+  margin: 0 0 2vw
+}
+small {
+  font-size: 2vw;
 }
 #pref {
   position: fixed;

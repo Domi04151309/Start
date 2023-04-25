@@ -59,6 +59,18 @@
         <input type="color" id="colorInput" value="#ffffff" aria-label="Text color" onchange="setTextColor()">
       </section>
       <section>
+        <h2>Weather</h2>
+        <div class="checkbox">
+          <input type="checkbox" id="weatherInput" onchange="setWeather()">
+          <label for="weatherInput">
+            Show weather data underneath the welcome message
+          </label>
+        </div>
+        <p>
+          The weather feature uses <a href="https://github.com/chubin/wttr.in">wttr.in</a> to get weather data.
+        </p>
+      </section>
+      <section>
         <h2>About</h2>
         <p>
           A simple customizable homepage for your browser.<br>

@@ -1,5 +1,6 @@
 const timeTxt = document.getElementById('time')
 const messageTxt = document.getElementById('message')
+const weatherTxt = document.getElementById('weather')
 let date, h, m, message
 
 function startTime() {
@@ -27,9 +28,15 @@ const mainStyle = document.documentElement.style
 const background = localStorage.getItem('background')
 const textColor = localStorage.getItem('text-color')
 const blur = localStorage.getItem('blur')
+const weather = localStorage.getItem('weather') === 'true'
 
 if (background != null) mainStyle.setProperty('--bg', 'url(' + background + ')')
 if (textColor != null) mainStyle.setProperty('--text-color', textColor)
 if (blur != null) mainStyle.setProperty('--blur', (blur / 100) + 'vh')
+if (weather) {
+	fetch('https://wttr.in/?T&format=%c+%t')
+		.then(x => x.text())
+		.then(x => weatherTxt.innerHTML = x);
+}
 
 startTime()

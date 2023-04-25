@@ -4,6 +4,7 @@ const bgImage = document.getElementById('background')
 const bgFile = document.getElementById('bgFile')
 const colorInput = document.getElementById('colorInput')
 const blurInput = document.getElementById('blurInput')
+const weatherInput = document.getElementById('weatherInput')
 
 function setName() {
 	localStorage.setItem('name', nameInput.value)
@@ -55,6 +56,10 @@ function setBlur() {
 	bgImage.style.filter = 'blur(' + (blurInput.value / 100) + 'vh)'
 }
 
+function setWeather() {
+	localStorage.setItem('weather', weatherInput.checked)
+}
+
 function logTxt(action) {
 	let elem = document.createElement('p')
   elem.innerHTML = action
@@ -69,6 +74,7 @@ const name = localStorage.getItem('name')
 const background = localStorage.getItem('background')
 const textColor = localStorage.getItem('text-color')
 const blur = localStorage.getItem('blur')
+const weather = localStorage.getItem('weather') === 'true'
 
 if (name != null && name.length > 0) {
 	nameTxt.innerHTML = name
@@ -80,3 +86,4 @@ if (blur != null) {
 	blurInput.value = blur
 	bgImage.style.filter = 'blur(' + (blur / 100) + 'vh)'
 }
+weatherInput.checked = weather
