@@ -208,6 +208,9 @@ a:hover {
   section:nth-child(7) {
     order: 6;
   }
+  section:nth-child(8) {
+    order: 7;
+  }
   h2 {
     margin: 0 0 .83em;
   }

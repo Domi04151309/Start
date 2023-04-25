@@ -2,13 +2,14 @@
   --bg: url(../images/bg.jpg);
   --text-color: #ffffff;
   --blur: 0;
+  --font: sans-serif;
 }
 * {
   margin: 0;
 }
 html {
   height: 100%;
-  font: 14px sans-serif;
+  font-family: var(--font);
   color: var(--text-color);
   background: #000 center/cover var(--bg) no-repeat;
 }

@@ -4,6 +4,7 @@ const bgImage = document.getElementById('background')
 const bgFile = document.getElementById('bgFile')
 const colorInput = document.getElementById('colorInput')
 const blurInput = document.getElementById('blurInput')
+const fontInput = document.getElementById('fontInput')
 const weatherInput = document.getElementById('weatherInput')
 
 function setName() {
@@ -56,8 +57,22 @@ function setBlur() {
 	bgImage.style.filter = 'blur(' + (blurInput.value / 100) + 'vh)'
 }
 
+function setFont() {
+	localStorage.setItem('font', fontInput.value)
+	loadFont(fontInput.value)
+	fontInput.style.fontFamily = '"' + fontInput.value + '"'
+}
+
 function setWeather() {
 	localStorage.setItem('weather', weatherInput.checked)
+}
+
+function loadFont(font) {
+	const link = document.createElement('link')
+	link.rel = 'stylesheet'
+	link.type = 'text/css'
+	link.href = 'https://fonts.googleapis.com/css?family=' + encodeURIComponent(font);
+	document.getElementsByTagName('head')[0].appendChild(link)
 }
 
 function logTxt(action) {
@@ -74,16 +89,22 @@ const name = localStorage.getItem('name')
 const background = localStorage.getItem('background')
 const textColor = localStorage.getItem('text-color')
 const blur = localStorage.getItem('blur')
+const font = localStorage.getItem('font')
 const weather = localStorage.getItem('weather') === 'true'
 
-if (name != null && name.length > 0) {
+if (name !== null && name.length > 0) {
 	nameTxt.innerHTML = name
 	nameInput.value = name
 }
-if (background != null) bgImage.src = background
-if (textColor != null) colorInput.value = textColor
-if (blur != null) {
+if (background !== null) bgImage.src = background
+if (textColor !== null) colorInput.value = textColor
+if (blur !== null) {
 	blurInput.value = blur
 	bgImage.style.filter = 'blur(' + (blur / 100) + 'vh)'
+}
+if (font !== null && font.length > 0) {
+	fontInput.value = font
+	loadFont(font)
+	fontInput.style.fontFamily = '"' + fontInput.value + '"'
 }
 weatherInput.checked = weather
