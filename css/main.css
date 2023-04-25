@@ -40,14 +40,16 @@ body {
   transform: translate(-50%, -50%);
   text-align: center;
 }
+.center > * {
+  font-weight: bold;
+  line-height: 1;
+}
 h1 {
-  font-size: 8vw;
-  font-weight: normal;
-  margin: 0 0 1vw
+  font-size: 12vw;
 }
 p {
   font-size: 4vw;
-  margin: 0 0 2vw
+  margin: 0 0 1vw
 }
 small {
   font-size: 2vw;
