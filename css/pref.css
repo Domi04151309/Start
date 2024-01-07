@@ -125,16 +125,16 @@ input[type="file"] {
   display: none;
 }
 input[type=color] {
-	-webkit-appearance: none;
+  -webkit-appearance: none;
   padding: 0;
   overflow: hidden;
   cursor: pointer;
 }
 input[type=color]::-webkit-color-swatch-wrapper {
-	padding: 0;
+  padding: 0;
 }
 input[type=color]::-webkit-color-swatch {
-	border: none;
+  border: none;
 }
 input[type=range] {
   -webkit-appearance: none;

@@ -14,7 +14,7 @@
   </head>
   <body>
     <header>
-      <a href="./" class="back" aria-label="Back"></a>
+      <a href="{{ site.baseurl }}/" class="back" aria-label="Back"></a>
       <h1>Settings</h1>
     </header>
     <main>
@@ -41,7 +41,7 @@
         </p>
       </section>
       <section id="img-container">
-        <img id="background" src="./images/bg.jpg" alt="Preview of your background">
+        <img id="background" src="{{ site.baseurl }}/images/bg.jpg" alt="Preview of your background">
       </section>
       <section>
         <h2>Background Blur</h2>
@@ -89,9 +89,9 @@
         </p>
       </section>
     </main>
-    <script src="{{ site.baseurl }}/js/pref.js" async></script>
+    <script src="{{ site.baseurl }}/js/pref.js" type="module"></script>
     <script>
-      let newWorker
+      let newWorker;
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
           navigator.serviceWorker.register('{{ site.baseurl }}/sw.js').then( registration => {
@@ -107,7 +107,7 @@
                 }
               });
             });
-            console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            console.log('ServiceWorker registration successful');
           }, err => {
             console.log('ServiceWorker registration failed: ', err);
           });
