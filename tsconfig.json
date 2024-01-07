@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "es2022",
+    "module": "es2022",
+    "moduleResolution": "bundler",
+    "outDir": "/tmp/domi/",
+    "allowJs": true,
+    "checkJs": true,
+    "strict": true
+  },
+  "include": [
+    "**/*.d.ts",
+    "**/*.js"
+  ],
+  "exclude": [
+    "_site/*",
+    "sw.js"
+  ]
+}

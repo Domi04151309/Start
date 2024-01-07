@@ -1,51 +1,66 @@
-const timeTxt = document.getElementById('time')
-const messageTxt = document.getElementById('message')
-const weatherTxt = document.getElementById('weather')
-let date, h, m, message
+import { INVALID_LAYOUT } from './common.js';
 
+const timeText = document.getElementById('time');
+const messageText = document.getElementById('message');
+const weatherText = document.getElementById('weather');
+let date, hour, message, minute;
+
+/**
+ * @throws {Error}
+ * @returns {void}
+ */
 function startTime() {
-	date = new Date()
-	h = date.getHours()
-	m = date.getMinutes()
-  if (m < 10) m = '0' + m
-	timeTxt.innerHTML = h + ':' + m
+  if (
+    timeText === null || messageText === null
+  ) throw new Error(INVALID_LAYOUT);
+  date = new Date();
+  hour = date.getHours();
+  minute = date.getMinutes();
+  if (minute < 10) minute = '0' + minute;
+  timeText.innerHTML = hour + ':' + minute;
 
-	message = 'Hello'
-  if (h < 12) {
-    message = 'Good Morning'
-  } else if (h < 18) {
-    message = 'Good Afternoon'
-	} else if (h < 22) {
-    message = 'Good Evening'
-	} else if (h < 25) {
-    message = 'Good Night'
-	}
-  messageTxt.innerHTML = [message, localStorage.getItem('name') || ''].filter(x => x.length > 0).join(', ') + '.'
-	setTimeout(startTime, 60000)
+  message = 'Hello';
+  if (hour < 12) message = 'Good Morning';
+  else if (hour < 18) message = 'Good Afternoon';
+  else if (hour < 22) message = 'Good Evening';
+  else if (hour < 25) message = 'Good Night';
+  messageText.innerHTML = [
+    message,
+    localStorage.getItem('name') ?? ''
+  ].filter(name => name.length > 0).join(', ') + '.';
+  setTimeout(startTime, 60_000);
 }
 
-const mainStyle = document.documentElement.style
-const background = localStorage.getItem('background')
-const textColor = localStorage.getItem('text-color')
-const blur = localStorage.getItem('blur')
-const font = localStorage.getItem('font')
-const weather = localStorage.getItem('weather') === 'true'
+const mainStyle = document.documentElement.style;
+const background = localStorage.getItem('background');
+const textColor = localStorage.getItem('text-color');
+const blur = localStorage.getItem('blur');
+const font = localStorage.getItem('font');
+const weather = localStorage.getItem('weather') === 'true';
 
-if (background !== null) mainStyle.setProperty('--bg', 'url(' + background + ')')
-if (textColor !== null) mainStyle.setProperty('--text-color', textColor)
-if (blur !== null) mainStyle.setProperty('--blur', (blur / 100) + 'vh')
+if (background !== null) mainStyle.setProperty(
+  '--bg', 'url(' + background + ')'
+);
+if (textColor !== null) mainStyle.setProperty('--text-color', textColor);
+if (blur !== null) mainStyle.setProperty(
+  '--blur', (parseInt(blur, 10) / 100).toString() + 'vh'
+);
 if (font !== null && font.length > 0) {
-	const link = document.createElement('link')
-	link.rel = 'stylesheet'
-	link.type = 'text/css'
-	link.href = 'https://fonts.googleapis.com/css?family=' + encodeURIComponent(font);
-	document.getElementsByTagName('head')[0].appendChild(link)
-	mainStyle.setProperty('--font', '"' + font + '"')
-}
-if (weather === true) {
-	fetch('https://wttr.in/?T&format=%c+%t')
-		.then(x => x.text())
-		.then(x => weatherTxt.innerHTML = x);
+  const link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.type = 'text/css';
+  link.href = 'https://fonts.googleapis.com/css?family=' +
+    encodeURIComponent(font);
+  document.getElementsByTagName('head')[0].append(link);
+  mainStyle.setProperty('--font', '"' + font + '"');
 }
 
-startTime()
+if (weather) try {
+  const request = await fetch('https://wttr.in/?T&format=%c+%t');
+  const text = await request.text();
+  if (weatherText !== null) weatherText.innerHTML = text;
+} catch (error) {
+  console.warn(error);
+}
+
+startTime();

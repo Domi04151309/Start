@@ -25,7 +25,7 @@
           Currently the custom name is <span id="name">not set</span>.
           You can enter a name below.
         </p>
-        <input type="text" id="nameInput" placeholder="Your name" aria-label="Your Name" onchange="setName()">
+        <input type="text" id="nameInput" placeholder="Your name" aria-label="Your Name">
       </section>
       <section>
         <h2>Background Image</h2>
@@ -33,9 +33,9 @@
           You can upload a custom background image that will be used on the page.
           You can see the current background image below.
         </p>
-        <label class="input-file"><input id="bgFile" type="file" onchange="setBg()">Upload image</input></label>
-        <button onclick="randomBg()">Random background</button>
-        <button onclick="delBg()">Reset background</button>
+        <label class="input-file"><input id="bgFile" type="file">Upload image</input></label>
+        <button id="randomBg" type="button">Random background</button>
+        <button id="delBg" type="button">Reset background</button>
         <p>
           The random background feature uses Unsplash to get images. Read their <a href="https://unsplash.com/privacy">privacy policy</a> for further information.
         </p>
@@ -48,7 +48,7 @@
         <p>
           Adjust the amount of blur on the background image with the slider below.
         </p>
-        <input type="range" id="blurInput" value="0" aria-label="Background blur" onchange="setBlur()">
+        <input type="range" id="blurInput" value="0" aria-label="Background blur">
       </section>
       <section>
         <h2>Text Color</h2>
@@ -56,14 +56,14 @@
           You can set a custom text color that will be used on the page.
           Click the box below to choose a color.
         </p>
-        <input type="color" id="colorInput" value="#ffffff" aria-label="Text color" onchange="setTextColor()">
+        <input type="color" id="colorInput" value="#ffffff" aria-label="Text color">
       </section>
       <section>
         <h2>Font</h2>
         <p>
           You can enter a custom font that will be used on the page.
         </p>
-        <input type="text" id="fontInput" aria-label="Custom Font" onchange="setFont()">
+        <input type="text" id="fontInput" aria-label="Custom Font">
         <p>
           The font feature uses Google Fonts. Read their <a href="https://developers.google.com/fonts/faq/privacy">privacy policy</a> for further information.
         </p>
@@ -71,7 +71,7 @@
       <section>
         <h2>Weather</h2>
         <div class="checkbox">
-          <input type="checkbox" id="weatherInput" onchange="setWeather()">
+          <input type="checkbox" id="weatherInput">
           <label for="weatherInput">
             Show weather data underneath the welcome message
           </label>
